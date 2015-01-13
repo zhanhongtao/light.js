@@ -1,3 +1,16 @@
+;(function( name, definition ) {
+  var hasDefine = typeof define === 'function',
+    hasExports = typeof module !== 'undefined' && module.exports;
+
+  if ( hasDefine ) {
+    define(definition);
+  } else if (hasExports) {
+    module.exports = definition();
+  } else {
+    this[name] = definition();
+  }
+})( 'Light', function() {
+
 var Light = function() {
   this.callbacks = {};
 };
@@ -45,6 +58,6 @@ Light.notify = Light.prototype.notify = function( name ) {
   }
 };
 
-// 支持定义全局消息
-// 支持内部消息
-// module.exports = Light;
+return Light;
+
+});
