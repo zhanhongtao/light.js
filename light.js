@@ -19,7 +19,7 @@ light.callbacks = {};
 light.addEventListener = 
 light.on = 
 light.prototype.addEventListener =
-light.prototype.off = function(name, callback) {
+light.prototype.on = function(name, callback) {
   var callbacks = this.callbacks[name] = this.callbacks[name] || [];
   callbacks.push(callback);
 };
